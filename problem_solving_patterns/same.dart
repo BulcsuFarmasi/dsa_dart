@@ -1,28 +1,32 @@
 import 'dart:math';
 
 bool same(List<int> list, List<int> squaredList) {
-  bool frequenciesMatch = true;
-  for (int element in list) {
-    int listFrequency = 0;
-    for (int countElement in list) {
-      if (element == countElement) {
-        listFrequency++;
-      }
-    }
-    int squaredListFrequency = 0;
-    for (int squaredCountElement in squaredList) {
-      if (squaredCountElement == pow(element, 2)) {
-        squaredListFrequency++;
-      }
-    }
-    if (listFrequency != squaredListFrequency) {
-      frequenciesMatch = false;
-      break;
-    }
+  if (list.length != squaredList.length) {
+    return false;
   }
-  return frequenciesMatch;
+  Map<int, int> frequencyCounter1 = {};
+  Map<int, int> frequencyCounter2 = {};
+
+  for (int val in list) {
+    frequencyCounter1[val] = (frequencyCounter1.containsKey(val) ? frequencyCounter1[val]! : 0) + 1;
+  }
+
+  for (int val in squaredList) {
+    frequencyCounter2[val] = (frequencyCounter2.containsKey(val) ? frequencyCounter2[val]! : 0) + 1;
+  }
+
+  bool containsKeyAndAmount = true;
+  frequencyCounter1.forEach((int key, int value) {
+    if(!frequencyCounter2.containsKey(pow(key, 2))) {
+      containsKeyAndAmount = false;
+    }
+    if (frequencyCounter2[pow(key, 2)] != frequencyCounter1[key]) {
+      containsKeyAndAmount = false;
+    }
+  });
+  return containsKeyAndAmount;
 }
 
 void main() {
-  print(same([1,3,1],[9,1,1]));
+  print(same([1,4,1],[9,1,1]));
 }
