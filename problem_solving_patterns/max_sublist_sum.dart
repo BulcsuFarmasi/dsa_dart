@@ -5,7 +5,7 @@ int? maxSublistSum(List<int> list, int num) {
     return null;
   }
 
-  int max = 0;
+  double max = double.negativeInfinity;
 
   for (int i = 0; i < list.length - num + 1; i++) {
     int temp = 0;
