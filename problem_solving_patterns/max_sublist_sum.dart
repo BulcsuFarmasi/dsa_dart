@@ -1,23 +1,25 @@
-import 'dart:developer';
+
+import 'dart:math';
 
 int? maxSublistSum(List<int> list, int num) {
+  int maxSum = 0;
+  int tempSum = 0;
   if (num > list.length) {
     return null;
   }
 
-  double max = double.negativeInfinity;
-
-  for (int i = 0; i < list.length - num + 1; i++) {
-    int temp = 0;
-    for (int j = 0; j < num ; j++) {
-      temp +=  list[i + j];
-    }
-    if (temp > max) {
-      max = temp;
-    }
+  for (int i = 0; i < num; i++) {
+    maxSum += list[i];
   }
 
-  return max;
+  tempSum = maxSum;
+
+  for (int i = num; i < list.length; i++) {
+    tempSum = tempSum - list[i - num] + list[i];
+    maxSum = max(maxSum, tempSum);
+  }
+
+  return maxSum;
 }
 
 void main() {
