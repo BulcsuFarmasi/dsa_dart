@@ -3,14 +3,15 @@ int countUniqueValues(List<int> list) {
     return 0;
   }
 
-  int countOfUniqueValues = 1;
+  int i = 0;
 
-  for (int i = 0; i < list.length -1; i++) {
-    if (list[i] != list[i + 1]) {
-      countOfUniqueValues++;
+  for (int j = 0; j < list.length; j++) {
+    if (list[i] != list[j]) {
+      list[i] = list[j];
+      i++;
     }
   }
-  return countOfUniqueValues;
+  return i+1;
 }
 
 void main() {
