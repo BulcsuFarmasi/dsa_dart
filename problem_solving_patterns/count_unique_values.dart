@@ -5,10 +5,10 @@ int countUniqueValues(List<int> list) {
 
   int i = 0;
 
-  for (int j = 0; j < list.length; j++) {
+  for (int j = 1; j < list.length; j++) {
     if (list[i] != list[j]) {
-      list[i] = list[j];
       i++;
+      list[i] = list[j];
     }
   }
   return i+1;
