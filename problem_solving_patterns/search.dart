@@ -1,12 +1,20 @@
 int search(List<int> list, int val) {
-  for (int i = 0; i < list.length; i++) {
-    if (list[i] == val) {
-      return i;
+  int min = 0;
+  int max = list.length - 1;
+  while(min <= max) {
+    int middle = ((min + max) / 2).floor();
+    int currentElement = list[middle];
+    if (currentElement < val) {
+      min = middle + 1;
+    } else if (currentElement > val) {
+      max = middle - 1;
+    } else {
+      return middle;
     }
   }
   return -1;
 }
 
 void main() {
-  print(search([3,2,10], 10,));
+  print(search([2,3,10], 10,));
 }
