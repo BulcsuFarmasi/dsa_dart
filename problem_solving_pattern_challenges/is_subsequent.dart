@@ -9,9 +9,12 @@ bool isSubsequent (String search, containing) {
     if (containing[i] == search[searchPointer]) {
       searchPointer++;
     }
+    if (searchPointer == search.length) {
+      return true;
+    }
   }
 
-  return searchPointer == search.length;
+  return false;
 }
 
 void main() {
