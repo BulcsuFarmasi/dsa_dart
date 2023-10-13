@@ -19,3 +19,7 @@ void wakeUp() {
   eatBreakfast();
   print('Ok ready to go to work!');
 }
+
+void main() {
+  wakeUp();
+}
