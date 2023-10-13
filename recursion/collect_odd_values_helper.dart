@@ -1,4 +1,4 @@
-List<int> collectOddValues(List<int> lis) {
+List<int> collectOddValuesHelper(List<int> lis) {
   final List<int> result = [];
 
   void helper(List<int> helperInput) {
@@ -19,5 +19,5 @@ List<int> collectOddValues(List<int> lis) {
 }
 
 void main (){
-  print(collectOddValues([1,2,3,6,77,78,90]));
+  print(collectOddValuesHelper([1,2,3,6,77,78,90]));
 }
