@@ -3,5 +3,8 @@ double addUpTo(int n) {
 }
 
 void main () {
-  print(addUpTo(10));
+    final Stopwatch stopwatch = Stopwatch()..start();
+  addUpTo(1000000000);
+  stopwatch.stop();
+  print('Time elapsed: ${stopwatch.elapsedMilliseconds / 1000} seconds'); 
 }
